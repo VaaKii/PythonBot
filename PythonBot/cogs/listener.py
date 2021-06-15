@@ -3,7 +3,7 @@ from discord import Embed, Colour
 from configs.config import role_newprogrammer, role_unsociable, channel_count_users, main_guild, come_out_channel, banwords
 from database import *
 from fuzzywuzzy import fuzz
-
+import discord
 class Listener(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
@@ -24,6 +24,7 @@ class Listener(commands.Cog):
             if not guild.get_member(user.id):
                 delete_user(user)        
         print("Bot started!")
+        await self.bot.change_presence(status=discord.Status.idle,activity=discord.Game("API | .help"))
     
     @commands.Cog.listener()
     async def on_member_join(self,member):
