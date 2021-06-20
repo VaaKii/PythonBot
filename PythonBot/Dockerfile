@@ -13,6 +13,6 @@ RUN pip install -r requirements.txt && rm requirements.txt
 
 COPY . .
 
-EXPOSE 10000
+EXPOSE 9090/udp
 
 ENTRYPOINT ["python", "main.py"]
